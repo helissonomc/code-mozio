@@ -51,3 +51,19 @@ class Provider(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+
+
+class ServiceArea(models.Model):
+    """
+    Service area model
+    """
+
+    provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    # Geojson information
+    description = models.CharField(max_length=255)
+    polygon = models.PolygonField(srid=4326)
+
+    def __str__(self):
+        return self.name

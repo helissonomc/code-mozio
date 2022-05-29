@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin # noqa
 from django.contrib.auth import get_user_model
+from core.models import ServiceArea
 
 
 # Register your models here.
@@ -30,3 +31,4 @@ class UserAdmin(UserAdmin):
 
 
 admin.site.register(get_user_model(), UserAdmin)
+admin.site.register(ServiceArea)
