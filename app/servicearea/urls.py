@@ -10,7 +10,7 @@ from servicearea import views
 
 
 router = DefaultRouter()
-router.register('serviceareas-list', views.ServiceAreaViewSet)
+router.register('servicearea-list', views.ServiceAreaViewSet)
 router.register('servicearea-detail', views.ServiceAreaUpdateViewSet)
 
 

@@ -27,5 +27,6 @@ class ServiceAreaSerializer(serializers.ModelSerializer):
         Meta class for the Service Area serializer
         """
         model = ServiceArea
-        fields = ('id', 'name', 'price', 'provider', 'polygon', 'description')
+        fields = ('id', 'name', 'price', 'provider', 'polygon')
         read_only_fields = ('provider',)
+        write_only_fields = ('polygon',)
