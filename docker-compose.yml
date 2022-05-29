@@ -16,15 +16,15 @@ services:
             python manage.py migrate &&
             python manage.py runserver 0.0.0.0:8000"
     environment:
-      - DB_HOST=db
+      - DB_HOST=postgis
       - DB_NAME=postgres
       - DB_USER=postgres
       - DB_PASS=postgres
     depends_on:
-      - db
+      - postgis
 
-  db:
-    image: postgres:13-alpine
+  postgis:
+    image: postgis/postgis
     volumes:
       - dev-db-data:/var/lib/postgresql/data
     environment:
