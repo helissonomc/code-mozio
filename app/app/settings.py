@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'core',
+    'user',
+    # third party
     'rest_framework',
     'drf_spectacular'
 ]
