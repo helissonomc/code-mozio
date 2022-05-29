@@ -144,7 +144,7 @@ class PrivateServiceAreaApiTests(TestCase):
                 {'lat': 0, 'lng': 1},
                 {'lat': 1, 'lng': 1},
                 {'lat': 1, 'lng': 0},
-                {'lat': 0, 'lng': 0},
+                {'lat': -2, 'lng': 0},
             ],
         }
 
@@ -152,6 +152,7 @@ class PrivateServiceAreaApiTests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         service_area.refresh_from_db()
+
         self.assertEqual(service_area.name, payload.get('name'))
         self.assertEqual(service_area.price, payload.get('price'))
 

@@ -82,6 +82,7 @@ class ServiceAreaUpdateViewSet(mixins.UpdateModelMixin,
         try:
             polygon = self.request.data.getlist('polygon')
             polygon = [json.loads(i.replace("'", "\"")) for i in polygon]
+
         except Exception:
             polygon = self.request.data['polygon']
 
