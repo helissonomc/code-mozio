@@ -52,7 +52,6 @@ class ServiceAreaViewSet(mixins.ListModelMixin,
         except Exception:
             raise APIException("Polygon is not valid")
 
-
         serializer.save(provider=self.request.user, polygon=polygon)
 
     def create(self, request, *args, **kwargs):
