@@ -39,7 +39,7 @@ The application can be devided in two main model:
  ## Postgis
  This tool was used because it suports operations with polygons and it makes esier to the developer to build applications and it gives us super fast queries.
  ## Documentation
- The documentation of the aply is available in :
+ The documentation of the api is available in :
  https://code-mozio.44.196.169.7.nip.io/api/docs/
  
  ## Locally
