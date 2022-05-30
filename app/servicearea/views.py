@@ -5,7 +5,6 @@ from rest_framework import viewsets, mixins
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.exceptions import APIException
-
 import json
 
 from django.contrib.gis.geos import Point, Polygon
@@ -39,7 +38,7 @@ class ServiceAreaViewSet(mixins.ListModelMixin,
 
     def perform_create(self, serializer):
         """
-        Create a new service area
+        This text is the description for this API.
         """
 
         try:
@@ -55,6 +54,31 @@ class ServiceAreaViewSet(mixins.ListModelMixin,
 
 
         serializer.save(provider=self.request.user, polygon=polygon)
+
+    def create(self, request, *args, **kwargs):
+        """
+        Create a new service area.
+        ---
+        Polygon body example:
+                "polygon": [
+                    {"lat": "-2", "lng": "0"},
+                    {"lat": "0", "lng": "1"},
+                    {"lat": "1", "lng": "1"},
+                    {"lat": "1", "lng": "0"},
+                    {"lat": "-2", "lng": "0"}
+                ]
+        """
+        return super(ServiceAreaViewSet, self).create(request, *args, **kwargs)
+
+    def list(self, request, *args, **kwargs):
+        """
+        List all service areas.
+        ---
+        Query parameters:
+            - latitude
+            - longitude
+        """
+        return super(ServiceAreaViewSet, self).list(request, *args, **kwargs)
 
 
 class ServiceAreaUpdateViewSet(mixins.UpdateModelMixin,
